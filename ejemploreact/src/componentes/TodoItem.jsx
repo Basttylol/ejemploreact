@@ -1,8 +1,17 @@
 import React from "react";
-export function TodoItem(){
+export function TodoItem({todo,cambiarEstado,eliminarTarea}){
+    const {id,task,complete}=todo
+
+    const fnCambiarEstado=()=>{
+        cambiarEstado(id);
+    }
     return(
         <>
-            <li className='list-group-item list-group-item-action'>Tarea 1</li>
+            <li className="list-group-item">
+            <input className="frorm-check-input me-2" onChange={fnCambiarEstado} checked={complete} type="checkbox">
+            </input>
+            {task}
+            </li>
         </>
     );
 }
